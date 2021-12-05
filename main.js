@@ -1,9 +1,8 @@
 const Discord = require("discord.js");
 const ytdl = require("ytdl-core");
-const token = 'OTE2NTIwMjIwODg4Mjk3NDky.YarV-A.03xaeKVQ3O2ue2UamChluQigBVM';
+const { token, prefix } = require('./config.json')
 
 const client = new Discord.Client();
-const prefix = "!";
 const queue = new Map();
 
 client.once("ready", () => {
@@ -76,7 +75,7 @@ async function execute(message, serverQueue) {
 
     try {
       console.log(queueContruct.songs);
-      
+
       var connection = await voiceChannel.join();
       queueContruct.connection = connection;
       message.channel.send(`Tocando  ${song.title}!`)
